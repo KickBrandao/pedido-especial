@@ -1,0 +1,271 @@
+/* Configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Estilo do corpo da página */
+body{
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f3e5ff, #d9b3ff);
+    font-family: Arial, sans-serif;
+}
+
+
+/* Centralização do conteúdo */
+.container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilo da pergunta */
+h1{
+    color: #743b9c;
+    font-size: 42px;
+    text-shadow: 2px 2px 5px rgba(116, 59, 156, 0.15);
+}
+
+/* Organização dos botões */
+.botoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Estilo geral dos botões */
+button {
+    min-width: 150px;
+    min-height: 65px;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 35px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+/* Botão Sim */
+#sim {
+    background-color: #a66bd4;
+    color: white;
+}
+
+/* Botão Não */
+#nao {
+    background-color: white;
+    color: #743b9c;
+}
+
+/* Efeito ao passar o mouse */
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Adaptação para celulares */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+
+
+/* Esconde elementos */
+.oculto {
+    display: none !important;
+}
+
+/* Centraliza o conteúdo das duas telas */
+#tela-pergunta,
+#tela-erro {
+    text-align: center;
+}
+
+/* Espaçamento entre pergunta e botões */
+#tela-pergunta h1 {
+    margin-bottom: 30px;
+}
+
+/* Organização da tela de erro */
+#tela-erro {
+    max-width: 600px;
+}
+
+/* Aparência da mensagem de erro */
+#mensagem-erro {
+    color: #743b9c;
+    font-size: 30px;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+/* Botão Voltar */
+#voltar {
+    background-color: #a66bd4;
+    color: white;
+}
+
+/* Ajustes para celulares */
+@media (max-width: 600px) {
+    #mensagem-erro {
+        font-size: 23px;
+    }
+}
+
+
+/* Área dos corações */
+#coracoes {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Mantém a pergunta acima dos corações */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Aparência dos corações */
+.coracao {
+    position: absolute;
+    bottom: -50px;
+    animation: flutuar linear forwards;
+    opacity: 0;
+    user-select: none;
+}
+
+/* Animação dos corações flutuantes */
+@keyframes flutuar {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    85% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Tela da resposta Sim */
+#tela-sim {
+    text-align: center;
+    animation: aparecer 1.5s ease;
+}
+
+#tela-sim h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+#tela-sim p {
+    color: #743b9c;
+    font-size: 23px;
+}
+
+/* Animação da mensagem */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    #tela-sim h1 {
+        font-size: 34px;
+    }
+
+    #tela-sim p {
+        font-size: 19px;
+    }
+}
+
+
+/* Contorno fino nas letras das mensagens */
+h1,
+#mensagem-erro,
+#tela-sim p {
+    -webkit-text-stroke: 0.4px black;
+}
+
+
+/* Corações da explosão */
+.coracao-explosao {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+    user-select: none;
+
+    animation: explodir 2s ease-out forwards;
+}
+
+/* Animação da explosão */
+@keyframes explodir {
+
+    0% {
+        transform: translate(-50%, -50%) scale(0.2);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    65% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.5);
+
+        opacity: 0;
+    }
+}
+
+/* Mensagem final */
+#tela-sim {
+    animation: aparecer 1.5s ease;
+}
+
