@@ -11,9 +11,9 @@ const mensagemErro = document.getElementById("mensagem-erro");
 const areaCoracoes = document.getElementById("coracoes");
 
 const mensagens = [
-    "Erro 404: A opção 'Não' não foi encontrada! 💜",
-    "Erro 403: Você não tem permissão para recusar esse amor! 💕",
-    "Erro 500: O sistema não consegue processar um 'Não'! 💍"
+    "A opção 'Não' tá aí só de enfeite né 💜",
+    "Tu está de graça, só pode! 💕",
+    "Depois de tanto trabalho pra fazer essa surpresa... 💍"
 ];
 
 let contador = 0;
